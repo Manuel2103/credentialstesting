@@ -1,5 +1,7 @@
 package at.itkolleg.credentials;
+
 import com.google.common.hash.Hashing;
+
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
@@ -7,10 +9,11 @@ import java.util.List;
  * HashDecorator erbt von der Klasse CsvExporter und kann somit diese Klasse dekorieren.
  * Die Methode export wird überschrieben und mit einer Funktionalität erweitert.
  */
-public class HashDecorator extends CsvExporter{
+public class HashDecorator extends CsvExporter {
 
     /**
      * Konstruktor der Mutter Klasse (CsvExporter)
+     *
      * @param csvExporter
      */
     public HashDecorator(CsvExporter csvExporter) {
@@ -21,6 +24,7 @@ public class HashDecorator extends CsvExporter{
      * Die Methode export wird überschrieben und mit der Hash-Funktionalität erweitert.
      * Dabei wird die Liste von Credentials durchiteriert und bei jedem Credential das PWD gehasht.
      * Dies wird ermöglicht, indem Getter und Setter von Pwd verwendet wird.
+     *
      * @param credentialsList Liste von Credentials mit (Host, PWD, User)
      */
     @Override
