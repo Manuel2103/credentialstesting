@@ -9,15 +9,15 @@ import java.util.List;
  * HashDecorator erbt von der Klasse CsvExporter und kann somit diese Klasse dekorieren.
  * Die Methode export wird überschrieben und mit einer Funktionalität erweitert.
  */
-public class HashDecorator extends CsvExporter {
+public class HashDecorator implements ExportCredentials {
 
+    ExportCredentials exportCredentials;
     /**
-     * Konstruktor der Mutter Klasse (CsvExporter)
+     * Der Konstruktor wird verwendet, um das Objekt das dekoriert zu deklarieren.
      *
-     * @param csvExporter
      */
-    public HashDecorator(CsvExporter csvExporter) {
-        super();
+    public HashDecorator(ExportCredentials exportCredentials) {
+        this.exportCredentials = exportCredentials;
     }
 
     /**
@@ -38,6 +38,6 @@ public class HashDecorator extends CsvExporter {
             credentialsList.get(i).setPwd(hashPW);
 
         }
-        super.export(credentialsList);
+        exportCredentials.export(credentialsList);
     }
 }
