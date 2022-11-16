@@ -6,19 +6,21 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 /**
- * HashDecorator erbt von der Klasse CsvExporter und kann somit diese Klasse dekorieren.
+ * HashDecorator erbt von der Klasse DecoratorExport.
  * Die Methode export wird überschrieben und mit einer Funktionalität erweitert.
  */
-public class HashDecorator implements ExportCredentials {
+public class HashDecorator extends DecoratorExport {
 
     ExportCredentials exportCredentials;
+
     /**
-     * Der Konstruktor wird verwendet, um das Objekt das dekoriert zu deklarieren.
-     *
+     * Konstruktor der Mutterklasse
+     * @param exportCredentials das zu dekorierende Objekt
      */
     public HashDecorator(ExportCredentials exportCredentials) {
-        this.exportCredentials = exportCredentials;
+        super(exportCredentials);
     }
+
 
     /**
      * Die Methode export wird überschrieben und mit der Hash-Funktionalität erweitert.
@@ -38,6 +40,6 @@ public class HashDecorator implements ExportCredentials {
             credentialsList.get(i).setPwd(hashPW);
 
         }
-        exportCredentials.export(credentialsList);
+       super.export(credentialsList);
     }
 }
