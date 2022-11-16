@@ -14,7 +14,15 @@ public class Main {
         exportCredentials.export(credentialsList);
 
         System.out.println("------------Decorator------------");
+        /**
+         * In der Main wird die Funktionalität des Decorators getestet.
+         * Dabei wird ein die bestehende Liste von Credentials verwendet und danach eine erweiterte.
+         */
         ExportCredentials exp = new HashDecorator(new CsvExporter());
+        exp.export(credentialsList);
+
+        credentialsList.add(new Credentials("manuel@gmail.com", "test", "m.foidl"));
+        System.out.println("------------Liste mit einem weiteren Beispiel------------");
         exp.export(credentialsList);
     }
 }
